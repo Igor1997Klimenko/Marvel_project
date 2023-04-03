@@ -1,0 +1,32 @@
+.linkRoute{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border: 1px solid #43d42e;
+  padding: 5px;
+  border-radius: 5px;
+  transition: 0.5s;
+  color: #43d42e;
+  margin-top: 10px;
+}
+
+.linkRoute:hover{
+  background: #9ee1f1bd;
+  border: 1px solid #2ea4d4;
+  color: #2ea4d4;
+}
+
+.inputName{
+  width: 50%;
+  position: absolute;
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0px 0px 5px 1px rgba(255,0,0,1);
+  -moz-box-shadow: inset 0px 0px 5px 1px rgba(255,0,0,1);
+  box-shadow: inset 0px 0px 5px 1px rgba(255,0,0,1);
+}
+
+  @media (max-width: 568px) {
+    .inputName{
+      width: 85%;
+  }
+}
