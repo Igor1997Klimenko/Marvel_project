@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { PoweroffOutlined } from '@ant-design/icons';
 
 const ButtonCard = ({loadMoreButton}) => {
-
   const [loadings, setLoadings] = useState([]);
 
   const enterLoading = (index) => {

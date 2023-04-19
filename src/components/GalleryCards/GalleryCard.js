@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { cardMarvel } from "../../services/apiKey"; 
 import GalleryItemCard from "../GalleryItemCard/GalleryItemCard";
-import { BlockCard, BtnLoading, PaginationCard, Result } from "./GalleryCard.styles";
+import { ListCard, BtnLoading, PaginationCard, Result } from "./GalleryCard.styles";
 import Button from "../Button/Button";
 import PaginationCast from "../PaginationCast/PaginationCast";
 
@@ -14,22 +14,9 @@ const GalleryCard = () => {
     cardMarvel().then(data => setCard(data))
   }, [])
 
-  const PerPageChange = (value) => {
-    setSize(value);
-    const newPerPage = Math.ceil(card.length / value);
-    if (current > newPerPage) {
-        setCurrent(newPerPage);
-    }
-  }
-
   const getData = (current, pageSize) => {
       return card.slice((current - 1) * pageSize, current * pageSize);
-  };
-
-  const PaginationChange = (page, pageSize) => {
-      setCurrent(page);
-      setSize(pageSize)
-  }
+  }; 
   
   const loadMoreButton = () => {
     setSize(size + 10)
@@ -38,7 +25,7 @@ const GalleryCard = () => {
   return (
     <>
     <Result>Results: {size}</Result>
-    <BlockCard>
+    <ListCard>
       {getData(current, size).map(({ id, title, thumbnail }) => (
         <GalleryItemCard 
           key={id}
@@ -46,14 +33,14 @@ const GalleryCard = () => {
           title={title} 
           imgSrc={thumbnail}/>
       ))}
-    </BlockCard>
+    </ListCard>
     <PaginationCard>
       <PaginationCast
-        PaginationChange={PaginationChange}
+        setCurrent={setCurrent}
         card={card}
         current={current}
         size={size}
-        PerPageChange={PerPageChange}
+        setSize={setSize}
       />
     </PaginationCard>
     <BtnLoading>

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const BlockCard = styled.ul`
+export const ListCard = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
